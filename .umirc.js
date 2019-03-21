@@ -25,5 +25,12 @@ export default {
       },
     }],
   ],
-  routes: routerPage
+  routes: routerPage ,
+  proxy: {
+    "/api": {
+      "target": "http://cms.haiguimall.com/",
+      "changeOrigin": true,
+      "pathRewrite": { "^/api": "" }
+    }
+  },
 }
