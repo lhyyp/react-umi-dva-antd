@@ -28,7 +28,7 @@ export default {
   routes: routerPage ,
   proxy: {
     "/api": {
-      "target": "http://cms.haiguimall.com/",
+      "target": "http://localhost:3012",
       "changeOrigin": true,
       "pathRewrite": { "^/api": "" }
     }

@@ -60,8 +60,8 @@ class HehTable extends Component {
     this.props.form.resetFields();
     this.props.getSearchValue();
   };
-  onChange = (val ) =>{
-    this.props.form.resetFields(`subId`,[]);
+  onChange = (val) => {
+    this.props.form.resetFields(`subId`, []);
     this.props.onChange(val);
   }
   expand = () => {
@@ -84,7 +84,7 @@ class HehTable extends Component {
         xl={8}
         xxl={6}
         key={item.key}
-        //style={{ display: this.state.expand ? 'inline-block' : index + 1 > size ? 'none' : 'inline-block' }}
+      //style={{ display: this.state.expand ? 'inline-block' : index + 1 > size ? 'none' : 'inline-block' }}
       >
         <ItemInput
           id={item.id}
@@ -107,12 +107,12 @@ class HehTable extends Component {
         xl={8}
         xxl={6}
         key={item.key}
-        // style={{ display: this.state.expand ? 'inline-block' : index + 1 > size ? 'none' : 'inline-block' }}
+      // style={{ display: this.state.expand ? 'inline-block' : index + 1 > size ? 'none' : 'inline-block' }}
       >
         <ItemSelect
           id={item.id}
           name={item.name}
-          onChange ={item.is_onchange ? this.onChange:''}
+          onChange={item.is_onchange ? this.onChange : ''}
           options={item.options}
           layout={layout}
           form={this.props.form}
@@ -134,7 +134,7 @@ class HehTable extends Component {
         xl={8}
         xxl={6}
         key={item.key}
-        // style={{ display: this.state.expand ? 'inline-block' : index + 1 > size ? 'none' : 'inline-block' }}
+      // style={{ display: this.state.expand ? 'inline-block' : index + 1 > size ? 'none' : 'inline-block' }}
       >
 
         <ItemRadio
@@ -167,7 +167,7 @@ class HehTable extends Component {
         md={12}
         xxl={6}
         key={item.key}
-        // style={{ display: this.state.expand ? 'inline-block' : index + 1 > size ? 'none' : 'inline-block' }}
+      // style={{ display: this.state.expand ? 'inline-block' : index + 1 > size ? 'none' : 'inline-block' }}
       >
         <FormItem
           {...layout}
@@ -200,7 +200,7 @@ class HehTable extends Component {
         md={12}
         xxl={6}
         key={item.key}
-        // style={{ display: this.state.expand ? 'inline-block' : index + 1 > size ? 'none' : 'inline-block' }}
+      // style={{ display: this.state.expand ? 'inline-block' : index + 1 > size ? 'none' : 'inline-block' }}
       >
         <FormItem
           {...layout}
@@ -219,7 +219,7 @@ class HehTable extends Component {
   };
 
   render() {
-    const { options, searchLoading, defaultValue,isShowAddBtn } = this.props;
+    const { options, searchLoading, defaultValue, isShowAddBtn } = this.props;
     const { expand } = this.state;
     const layout = {
       labelCol: { sm: { span: 6 }, xl: { span: 6 }, xxl: { span: 6 } },
@@ -249,7 +249,7 @@ class HehTable extends Component {
                 );
               })
             }
-            <Col xs={24} xl={8} md={12} xxl={6} style={{marginBottom:24}}>
+            <Col xs={24} xl={8} md={12} xxl={6} style={{ marginBottom: 24 }}>
               <Button loading={searchLoading} htmlType="submit" onClick={this.submit} type='primary'
                 icon='search'>搜索</Button>
               <span> </span>

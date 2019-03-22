@@ -5,7 +5,12 @@ export default {
 
 
 
-  platformLogin: api + '/LoginApi/v1/login',                     // 登录
+  platformLogin: api + '/member/login',                     // 登录
+  getMenuListByrole: api+'/member/getMenuListByrole',       //获取该角色下的menu列表
+
+
+
+
   platformLogout: api + '/LoginApi/v1/loginOut',                 //退出登录
   userList: api + '/member/v1/getList',                           // 用户数据列表
   getUserDetails: api + '/member/v1/getDetailInfo',               // 用户详情

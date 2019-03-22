@@ -5,22 +5,21 @@ exports.Routes= [
     },
     {
       path: "/admin",
-      component: "../layouts/index.tsx",
       routes: [
         {
           path: "/admin",
+          // Routes: ['./src/userStatus.js'],
           component: "../pages/admin"
         }
       ]
     },
     {
-      path: "/demo",
-      component: "../layouts/index.tsx",
+      path: "/menuList",
       routes: [
         {
-          path: "/demo",
-          Routes: ['./src/userStatus.js'],
-          component: "../pages/index.tsx"
+          path: "/menuList",
+          // Routes: ['./src/userStatus.js'],
+          component: "../pages/menuList"
         }
       ]
     },

@@ -6,7 +6,7 @@ import { formatMessage } from 'umi-plugin-locale';
 export default function() {
   return (
     <div className={styles.normal}>
-      <Link to={'/admin'}>go admin</Link>
+      <Link to={'/admin'}>go admin11111</Link>
     </div>
   );
 }
