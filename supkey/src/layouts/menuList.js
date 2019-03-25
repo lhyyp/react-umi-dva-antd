@@ -1,57 +1,40 @@
 import react, { Component } from "react";
 import { Link } from 'umi';
 import { Menu, Icon, Button,message } from 'antd';
-import { getMenuListByrole } from '../../pages/controller/member';
+import { getMenuListByrole } from '../pages/controller/member';
+import toTree  from '../../common/toTree.js'
 
 const SubMenu = Menu.SubMenu;
 class MenuList extends Component {
     state = {
         collapsed: false,
-        menuList: [{
-            'name': '权限管理',
-            'path': null,
-            'icon': 'user',
-            'children': [
-                {
-                    'name': '角色列表',
-                    'path': '/role',
-                    'icon': null,
-                    'children': null,
-                },
-                {
-                    'name': '用户列表',
-                    'path': '/userList',
-                    'icon': null,
-                    'children': null,
-                },
-                {
-                    'name': '菜单列表',
-                    'path': '/menuList',
-                    'icon': null,
-                    'children': null,
-                },
-            ],
-        }]
+        menuList:[],
+        selectedKeys:[''],
+        openKeys:['权限管理']
     }
-    componentDidMount() {
-        getMenuListByrole(getMenuListByrole).then(res => {
+    componentWillMount() {
+        console.log(this.props)
+        this.setState({selectedKeys : [this.props.props.location.pathname]});
+        getMenuListByrole().then(res => {
             if( res.code == 200 ){
-                let menuList = res.data;
-                menuList.map( item => {
-
-                })
-
-
+                let menuList = toTree ( res.data ) ;
+                this.setState({menuList});
             }else{
                 message.error(res.msg);
             }
         });
     }
-
     toggleCollapsed = () => {
         this.setState({
             collapsed: !this.state.collapsed,
         });
+    }
+    onSelect = ( item, key, keyPath) => {
+        this.setState({selectedKeys : [item.key]})
+    }
+    onOpenChange = (e) =>{
+        this.setState({openKeys:e})
+
     }
 
     render() {
@@ -77,16 +60,16 @@ class MenuList extends Component {
             );
         };
         const { menuList } = this.state;
-        // const { menuListToNamespace: { aa } } = this.props;
-        // console.log( this.props);
         return (
-            <div style={{ width: 256 }}>
-                <Button type="primary" onClick={this.toggleCollapsed} style={{ marginBottom: 16 }}>
+            <div style={{ width: 200 }}>
+                {/* <Button type="primary" onClick={this.toggleCollapsed} style={{ marginBottom: 16 }}>
                     <Icon type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'} />
-                </Button>
+                </Button> */}
                 <Menu
-                    defaultSelectedKeys={['1']}
-                    defaultOpenKeys={['sub1']}
+                    onClick = {this.onSelect}
+                    onOpenChange = { this.onOpenChange}
+                    selectedKeys = {this.state.selectedKeys}
+                    openKeys = {this.state.openKeys} 
                     mode="inline"
                     theme="dark"
                     inlineCollapsed={this.state.collapsed}

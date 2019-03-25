@@ -14,7 +14,7 @@ export default {
       if ( res && res.code == 200) {
         const token = res.data.id;
         sessionStorage.setItem('token', token);
-        router.push('/');
+        router.push('/admin');
       } else  {
         message.error(res.msg);
       }

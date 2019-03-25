@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
-import Menulist from '../../components/menuList'
-import {Link} from 'umi'
+import {Component} from 'react'
+
+
 class Admin extends Component{
-    render (){
-        return (
+    render(){
+        return(
             <div>
-                <Menulist/>
-                <Link to={'/demo'}>go demo</Link>
+                Admin
             </div>
         )
     }

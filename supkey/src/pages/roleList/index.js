@@ -1,13 +1,13 @@
 import {Component} from 'react'
 
 
-class MenuList extends Component{
+class RoleList extends Component{
     render(){
         return(
             <div>
-                MenuList
+                RoleList
             </div>
         )
     }
 }
-export default MenuList;
+export default RoleList;

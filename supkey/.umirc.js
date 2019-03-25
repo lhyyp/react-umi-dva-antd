@@ -25,7 +25,7 @@ export default {
       },
     }],
   ],
-  routes: routerPage ,
+  // routes: routerPage ,
   proxy: {
     "/api": {
       "target": "http://localhost:3012",

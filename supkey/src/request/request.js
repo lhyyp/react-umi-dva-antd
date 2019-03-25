@@ -36,7 +36,7 @@ const defaultConfig = {
 
 // response拦截器
 axios.interceptors.response.use(config => {
-  if (config.data && config.data.status === 401 || !sessionStorage.getItem('token')) {
+  if (config.data && config.data.code === 401 || !sessionStorage.getItem('token')) {
     router.push('/login');
   }
   return config.data;
