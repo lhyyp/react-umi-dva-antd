@@ -39,13 +39,14 @@ let user =
   "`roleId` int(11) NOT NULL COMMENT '角色'," +
   " PRIMARY KEY(`id`)" +
   ") ENGINE = InnoDB AUTO_INCREMENT = 2 DEFAULT CHARSET = utf8";
+
 let menuList =
   "CREATE TABLE if not exists `menulist` (" +
-  "`id` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT," +
+  "`id` int(10)  NOT NULL AUTO_INCREMENT," +
   "`path` varchar(255) NOT NULL," +
   "`icon` varchar(255) NOT NULL," +
   "`name` varchar(255) NOT NULL," +
-  "`parentId` int(10) unsigned zerofill NOT NULL COMMENT '上级菜单Id,0代表第一级菜单'," +
+  "`parentId` int(10) NOT NULL COMMENT '上级菜单Id,0代表第一级菜单'," +
   "`founder` int(11) NOT NULL COMMENT '创建人'," +
   "`createTime` datetime NOT NULL COMMENT '创建时间'," +
   "PRIMARY KEY (`id`)" +
@@ -58,6 +59,13 @@ let roleList =
   "`createTime` datetime NOT NULL  COMMENT '创建时间', " +
   "PRIMARY KEY (`id`) " +
   ") ENGINE=InnoDB DEFAULT CHARSET=utf8";
+let menulistbyrole =
+"CREATE TABLE if not exists `menulistbyrole` ( " +
+  "`id` int(11) unsigned NOT NULL AUTO_INCREMENT, " +
+  "`roleId` int(11) NOT NULL COMMENT '角色id', " +
+  "`menuId` int(11) NOT NULL, " +
+  "PRIMARY KEY (`id`) " +
+  ") ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 " ;
 
 
 let createTable = (sql) => {
@@ -71,6 +79,8 @@ let createTable = (sql) => {
 createTable(user);
 createTable(menuList);
 createTable(roleList);
+createTable(menulistbyrole);
+
 
 
 
